@@ -1,4 +1,4 @@
---B = "😳😳😳😳😳😳😳😳",
+
 local alphabet = {
     a = "😳🔥🔥😳😳😳😳🔥",
     A = "😳🔥😳😳😳😳😳🔥",
@@ -141,7 +141,3 @@ for i=1,string.len(encode) do
     end
 end
 return loadedString
-
-    _G.encode = string.lower([[code here]])
-    local encodedString = loadstring(game:HttpGet("https://raw.githubusercontent.com/sj0rs1/emojiSecure/master/Encoder.lua", true))()
-    print(encodedString)
