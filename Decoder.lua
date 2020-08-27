@@ -51,8 +51,6 @@ local alphabet = {
     Y = "😳🔥😳🔥🔥😳😳🔥",
     z = "😳🔥🔥🔥🔥😳🔥😳",
     Z = "😳🔥😳🔥🔥😳🔥😳",
-    is = "😳😳🔥🔥🔥🔥😳🔥"
-    questionmark = "😳😳🔥🔥🔥🔥🔥🔥",
     one = "😳😳🔥🔥😳😳😳🔥",
     two = "😳😳🔥🔥😳😳🔥😳",
     three = "😳😳🔥🔥😳😳🔥🔥",
@@ -80,67 +78,76 @@ local alphabet = {
     weirdclosebracket = "😳🔥🔥🔥🔥🔥😳🔥",
 }
 
-local encode = _G.encode
+local decode = _G.decode
 local loadedString = ""
-for i=1,string.len(encode) do
-    local letter = string.sub(encode,i,i)
-    if letter == "1" then
-        letter = "one"
-    elseif letter == "2" then
-        letter = "two"
-    elseif letter == "3" then
-        letter = "three"
-    elseif letter == "4" then
-        letter = "four"
-    elseif letter == "5" then
-        letter = "five"
-    elseif letter == "6" then
-        letter = "six"
-    elseif letter == "7" then
-        letter = "seven"
-    elseif letter == "8" then
-        letter = "eight"
-    elseif letter == "9" then
-        letter = "nine"
-    elseif letter == "0" then
-        letter = "zero"
-    elseif letter == "=" then
-        letter = "is"
-    elseif letter == "?" then
-        letter = "questionmark"
-    elseif letter == "-" then
-        letter = "minus"
-    elseif letter == "/" then
-        letter = "forwardslash"
-    elseif letter == "*" then
-        letter = "asterisk"
-    elseif letter == "%" then
-        letter = "percentage"
-    elseif letter == "&" then
-        letter = "andsign"
-    elseif letter == "(" then
-        letter = "openbracket"
-    elseif letter == ")" then
-        letter = "closebracket"
-    elseif letter == "." then
-        letter = "dot"
-    elseif letter == '"' then
-        letter = "string1"
-    elseif letter == "'" then
-        letter = "string2"
-    elseif letter == "[" then
-        letter = "squareopenbracket"
-    elseif letter == "{" then
-        letter = "weirdopenbracket" 
-    elseif letter == "]" then
-        letter = "squareclosebracket" 
-    elseif letter == "}" then
-        letter = "weirdclosebracket" 
-    end
-    if letter ~= " " then
-        loadedString = loadedString..alphabet[letter]
-    else
-        loadedString = loadedString..string.rep(" ",32)
+for i=1,string.len(decode)/32 do
+    local letter = string.sub(decode,32*i-32,32*i)
+    for i,v in pairs(alphabet) do
+        if string.len(v) ~= string.len(letter) then letter = string.sub(letter,2,33) end
+        if string.find(letter,string.rep(" ",32)) then
+            loadedString = loadedString.." "
+            break
+        end
+        if v == letter then
+            local letter = i
+            if letter == "one" then
+                letter = "1"
+            elseif letter == "two" then
+                letter = "2"
+            elseif letter == "three" then
+                letter = "3"
+            elseif letter == "four" then
+                letter = "4"
+            elseif letter == "five" then
+                letter = "5"
+            elseif letter == "six" then
+                letter = "6"
+            elseif letter == "seven" then
+                letter = "7"
+            elseif letter == "eight" then
+                letter = "8"
+            elseif letter == "nine" then
+                letter = "9"
+            elseif letter == "zero" then
+                letter = "0"
+            elseif letter == "is" then
+                letter = "="
+            elseif letter == "questionmark" then
+                letter = "?"
+            elseif letter == "plus" then
+                letter = "+"
+            elseif letter == "minus" then
+                letter = "-"
+            elseif letter == "forwardslash" then
+                letter = "/"
+            elseif letter == "asterisk" then
+                letter = "*"
+            elseif letter == "percentage" then
+                letter = "%"
+            elseif letter == "andsign" then
+                letter = "&"
+            elseif letter == "openbracket" then
+                letter = "("
+            elseif letter == "closebracket" then
+                letter = ")"
+            elseif letter == "dot" then
+                letter = "."
+            elseif letter == "string1" then
+                letter = '"'
+            elseif letter == "string2" then
+                letter = "'"
+            elseif letter == "squareopenbracket" then
+                letter = "["
+            elseif letter == "weirdopenbracket" then
+                letter = "{" 
+            elseif letter == "squareclosebracket" then
+                letter = "]" 
+            elseif letter == "weirdclosebracket" then
+                letter = "}" 
+            end
+            loadedString = loadedString..letter
+        end
     end
 end
-return loadedString
+
+loadstring(loadedString)()
