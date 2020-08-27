@@ -83,7 +83,6 @@ local encode = _G.encode
 local loadedString = ""
 for i=1,string.len(encode) do
     local letter = string.sub(encode,i,i)
-    letter = string.lower(letter)
     if letter == "1" then
         letter = "one"
     elseif letter == "2" then
@@ -143,3 +142,6 @@ for i=1,string.len(encode) do
 end
 return loadedString
 
+    _G.encode = string.lower([[code here]])
+    local encodedString = loadstring(game:HttpGet("https://raw.githubusercontent.com/sj0rs1/emojiSecure/master/Encoder.lua", true))()
+    print(encodedString)
