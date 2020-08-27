@@ -135,8 +135,6 @@ for i=1,string.len(encode) do
     end
     if letter and letter ~= " " then
         loadedString = loadedString..alphabet[letter]
-    else
-        loadedString = loadedString.."\n"
     end
 end
 return loadedString
