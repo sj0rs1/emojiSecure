@@ -84,6 +84,10 @@ for i=1,string.len(decode)/32 do
     local letter = string.sub(decode,32*i-32,32*i)
     for i,v in pairs(alphabet) do
         if string.len(v) ~= string.len(letter) then letter = string.sub(letter,2,33) end
+        if string.find(letter,string.rep(" ",32)) then
+            loadedString = loadedString.." "
+            break
+        end
         if v == letter then
             local letter = i
             if letter == "one" then
