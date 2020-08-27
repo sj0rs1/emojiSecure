@@ -56,6 +56,7 @@ local encode = _G.encode
 local loadedString = ""
 for i=1,string.len(encode) do
     local letter = string.sub(encode,i,i)
+    letter = string.lower(letter)
     if letter == "1" then
         letter = "one"
     elseif letter == "2" then
