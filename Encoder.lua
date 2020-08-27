@@ -133,8 +133,10 @@ for i=1,string.len(encode) do
     elseif letter == "}" then
         letter = "weirdclosebracket" 
     end
-    if letter and letter ~= " " then
+    if letter ~= " " then
         loadedString = loadedString..alphabet[letter]
+    else
+        loadedString = loadedString..string.rep(" ",32)
     end
 end
 return loadedString
