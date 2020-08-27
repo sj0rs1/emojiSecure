@@ -78,7 +78,7 @@ local alphabet = {
     weirdclosebracket = "😳🔥🔥🔥🔥🔥😳🔥",
 }
 
-local decode = [[😳🔥🔥🔥😳😳😳😳😳🔥🔥🔥😳😳🔥😳😳🔥🔥😳🔥😳😳🔥😳🔥🔥😳🔥🔥🔥😳😳🔥🔥🔥😳🔥😳😳😳😳🔥😳🔥😳😳😳😳😳🔥😳😳😳🔥😳😳🔥🔥😳😳😳🔥🔥😳🔥🔥😳🔥🔥🔥🔥😳🔥🔥😳🔥🔥🔥🔥😳🔥🔥😳🔥🔥😳😳😳😳🔥😳😳😳🔥😳😳😳🔥😳🔥😳😳🔥]]
+local decode = _G.decode
 local loadedString = ""
 for i=1,string.len(decode)/32 do
     local letter = string.sub(decode,32*i-32,32*i)
