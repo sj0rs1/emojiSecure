@@ -51,6 +51,8 @@ local alphabet = {
     Y = "😳🔥😳🔥🔥😳😳🔥",
     z = "😳🔥🔥🔥🔥😳🔥😳",
     Z = "😳🔥😳🔥🔥😳🔥😳",
+    is = "😳😳🔥🔥🔥🔥😳🔥"
+    questionmark = "😳😳🔥🔥🔥🔥🔥🔥",
     one = "😳😳🔥🔥😳😳😳🔥",
     two = "😳😳🔥🔥😳😳🔥😳",
     three = "😳😳🔥🔥😳😳🔥🔥",
@@ -102,8 +104,10 @@ for i=1,string.len(encode) do
         letter = "nine"
     elseif letter == "0" then
         letter = "zero"
-    elseif letter == "+" then
-        letter = "plus"
+    elseif letter == "=" then
+        letter = "is"
+    elseif letter == "?" then
+        letter = "questionmark"
     elseif letter == "-" then
         letter = "minus"
     elseif letter == "/" then
