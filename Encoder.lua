@@ -108,7 +108,7 @@ for i=1,string.len(encode) do
     elseif letter == "}" then
         letter = "weirdclosebracket" 
     end
-    if letter ~= " " then
+    if letter and letter ~= " " then
         loadedString = loadedString..alphabet[letter]
     else
         loadedString = loadedString.."\n"
