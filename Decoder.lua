@@ -54,6 +54,8 @@ local alphabet = {
     is = "😳😳🔥🔥🔥🔥😳🔥",
     questionmark = "😳😳🔥🔥🔥🔥🔥🔥",
     twodots = "😳😳🔥🔥🔥😳🔥😳",
+    twodots = "😳😳🔥🔥🔥😳🔥😳",
+    weirdtwodots = "😳😳🔥🔥🔥😳🔥🔥",
     one = "😳😳🔥🔥😳😳😳🔥",
     two = "😳😳🔥🔥😳😳🔥😳",
     three = "😳😳🔥🔥😳😳🔥🔥",
@@ -119,6 +121,10 @@ for i=1,string.len(decode)/32 do
                 letter = "?"
             elseif letter == "twodots" then
                 letter = ":"
+            elseif letter == "weirdtwodots" then
+                letter = ";"
+            elseif letter == "comma" then
+                letter = ","
             elseif letter == "plus" then
                 letter = "+"
             elseif letter == "minus" then
