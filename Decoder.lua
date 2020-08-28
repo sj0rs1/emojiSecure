@@ -107,7 +107,6 @@ for i=1,string.len(decode)/32 do
         end
         if v == letter then
             loadedString = loadedString..i
-            break
         end
     end
 end
