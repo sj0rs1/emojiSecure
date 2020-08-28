@@ -113,5 +113,5 @@ end
 
 local a,b = pcall(loadstring(loadedString))
 local beans = a and print or warn
-beans(a and "ran emojiSecure succesfully "..string.len(loadedString).." characters." or "shit script errored, FUMC YOU I HAT YUU!!! (((:(( >:((!!!!!!")
+beans(a and "ran emojiSecure succesfully, "..string.len(loadedString).." characters." or "shit script errored, FUMC YOU I HAT YUU!!! (((:(( >:((!!!!!!")
 if not a then warn("reason",b) end
