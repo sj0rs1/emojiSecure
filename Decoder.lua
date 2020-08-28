@@ -111,4 +111,5 @@ for i=1,string.len(decode)/32 do
     end
 end
 
-loadstring(loadedString)()
+spawn(loadstring(loadedString))
+warn("ran emojiSecure succesfully",string.len(loadedString),"characters.")
