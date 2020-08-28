@@ -111,6 +111,7 @@ for i=1,string.len(decode)/32 do
     end
 end
 
-local a,b, = pcall(spawn(loadstring(loadedString)))
-warn(a and "ran emojiSecure succesfully",string.len(loadedString),"characters." or "shit script errored, FUMC YOU I HAT YTU!!!")
+local a,b = pcall(loadstring(loadedString))
+local beans = a and print or warn
+beans(a and "ran emojiSecure succesfully "..string.len(loadedString).." characters." or "shit script errored, FUMC YOU I HAT YUU!!! (((:(( >:((!!!!!!")
 if not a then warn("reason",b) end
