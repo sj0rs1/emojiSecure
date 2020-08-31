@@ -92,18 +92,23 @@ local alphabet = {
     ["$"] = "😳😳🔥😳😳🔥😳😳",
     ["%"] = "😳😳🔥😳😳🔥😳🔥",
     ["^"] = "😳🔥😳🔥🔥🔥🔥😳",
-    ["\\"] = "\\"
+    ["`"] = "😳🔥🔥😳😳😳😳😳",
+    grave = "😳🔥🔥😳😳😳😳😳",
+    backslash = "😳🔥😳🔥🔥🔥😳😳"
 }
 
 local encode = _G.encode
 local loadedString = ""
 for i=1,string.len(encode) do
     local letter = string.sub(encode,i,i)
-    if not alphabet[letter] and letter ~= " " then print("missing",letter) continue end
-    if letter ~= " " then
-        loadedString = loadedString..alphabet[letter]
-    else
+    if letter == [[\]] then
+        loadedString = loadedString..alphabet["backslash"]
+    elseif letter == [[`]] then
+        loadedString = loadedString..alphabet["grave"]
+    elseif letter == " " then
         loadedString = loadedString..string.rep(" ",32)
+    elseif alphabet[letter] then
+        loadedString = loadedString..alphabet[letter]
     end
 end
 return loadedString
