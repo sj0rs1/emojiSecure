@@ -104,15 +104,18 @@ for i=1,string.len(decode)/32 do
         if string.len(v) ~= string.len(letter) then letter = string.sub(letter,2,33) end
         if string.find(letter,string.rep(" ",32)) then
             loadedString = loadedString.." "
-            break
+            continue
         end
         if v == letter then
-            if i == "grave" then
-                loadedString = loadedString..[[`]]
-            elseif i == "backslash" then
-                loadedString = loadedString..[[\]]
-            elseif true then
+            if i ~= "grave" and i ~= "backslash"  then
                 loadedString = loadedString..i
+            else
+                print("grave")
+                if i == "grave" then
+                    loadedString = loadedString..[[`]]
+                elseif i == "backslash" then
+                    loadedString = loadedString..[[\]]
+                end
             end
         end
     end
