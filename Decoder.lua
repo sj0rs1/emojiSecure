@@ -92,7 +92,8 @@ local alphabet = {
     ["$"] = "😳😳🔥😳😳🔥😳😳",
     ["%"] = "😳😳🔥😳😳🔥😳🔥",
     ["^"] = "😳🔥😳🔥🔥🔥🔥😳",
-    ["\\"] = "\\"
+    grave = "😳🔥🔥😳😳😳😳😳",
+    backslash = "😳🔥😳🔥🔥🔥😳😳"
 }
 
 local decode = _G.decode
@@ -106,12 +107,15 @@ for i=1,string.len(decode)/32 do
             break
         end
         if v == letter then
-            loadedString = loadedString..i
+            if i == "grave" then
+                loadedString = loadedString..[[`]]
+            elseif i == "backslash" then
+                loadedString = loadedString..[[\]]
+            elseif true then
+                loadedString = loadedString..i
+            end
         end
     end
 end
 
-local a,b = pcall(loadstring(loadedString))
-local beans = a and print or warn
-beans(a and "ran emojiSecure succesfully, "..string.len(loadedString).." characters." or "shit script errored, FUMC YOU I HAT YUU!!! (((:(( >:((!!!!!!")
-if not a then warn("reason",b) end
+loadstring(loadedString)()
