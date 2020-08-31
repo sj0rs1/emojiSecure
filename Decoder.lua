@@ -110,7 +110,6 @@ for i=1,string.len(decode)/32 do
             if i ~= "grave" and i ~= "backslash"  then
                 loadedString = loadedString..i
             else
-                print("grave")
                 if i == "grave" then
                     loadedString = loadedString..[[`]]
                 elseif i == "backslash" then
