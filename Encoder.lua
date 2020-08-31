@@ -101,14 +101,16 @@ local encode = _G.encode
 local loadedString = ""
 for i=1,string.len(encode) do
     local letter = string.sub(encode,i,i)
-    if letter == [[\]] then
-        loadedString = loadedString..alphabet["backslash"]
-    elseif letter == [[`]] then
-        loadedString = loadedString..alphabet["grave"]
-    elseif letter == " " then
-        loadedString = loadedString..string.rep(" ",32)
-    elseif alphabet[letter] then
+    if letter ~= [[\]] and letter ~= [[`]] and letter ~= " " then
         loadedString = loadedString..alphabet[letter]
+    else
+        if letter == [[\]] then
+            loadedString = loadedString..alphabet["backslash"]
+        elseif letter == [[`]] then
+            loadedString = loadedString..alphabet["grave"]
+        elseif letter == " " then
+            loadedString = loadedString..string.rep(" ",32)
+        end
     end
 end
 return loadedString
